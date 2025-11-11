@@ -30,11 +30,52 @@ public:
 		year = y;
 		Average = avg;
 	}
+	void Print()
+	{
+		Human::Print();
+		cout << "Year: " << year << ", Average: " << Average << endl;
+	}
 
+};
+
+class Teacher
+{
+protected:
+	string schoolname;
+	string subject;
+public:
+	Teacher() {}
+	Teacher(string sn, string sub)
+	{
+		schoolname = sn;
+		subject = sub;
+	}
+	void Print()
+	{
+		cout << "School Name: " << schoolname << ", Subject: " << subject << endl;
+	}
+};
+class Assistant : public Teacher
+	{
+		int experience;
+public:
+	Assistant() {}
+	Assistant(string sn, string sub, int exp) : Teacher(sn, sub)
+	{
+		experience = exp;
+	}
+	void Print()
+	{
+		Teacher::Print();
+		cout << "Experience: " << experience << " years" << endl;
+	}
 };
 
 
 int main()
 {
-
+	Student st("Mark", 20, 2, 3.5);
+	st.Print();
+	Assistant as("High School", "Mathematics", 5);
+	as.Print();
 }
